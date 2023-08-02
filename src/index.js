@@ -30,3 +30,51 @@ console.log("test");
     const containers2 = document.querySelectorAll(".container");
     console.log(containers2); //2つ表示
 }
+
+
+//DOMの作成
+{
+    const divEl = document.createElement("div");
+    console.log(divEl); //<div></div>
+}
+//DOMの追加
+{
+    //divタグの作成
+    const divEl = document.createElement("div");
+    //pタグの作成
+    const pEl = document.createElement("p");
+    //divタグ配下にpタグを追加
+    divEl.appendChild(pEl); //末尾に追加される
+    console.log(divEl); //<div><p></p></div>
+    
+    //h2タグの作成
+    const h2El = document.createElement("h2");
+    divEl.prepend(h2El); //先頭に追加
+    console.log(divEl); //<div><h2></h2><p></p></div>
+}
+
+
+//実際に追加してみる
+{
+    //buttonタグの作成
+    const buttonEl = document.createElement("button");
+    //ラベルの設定
+    buttonEl.textContent = "ボタンHoge";
+
+    //エリア1のdivタグを取得してボタンを追加
+    const div1El = document.querySelector(".container");
+    div1El.appendChild(buttonEl);
+}
+
+//削除してみる
+{
+    //h1タグの取得
+    const h1El = document.getElementById("title");
+    //bodyタグの取得
+    const bodyEl = document.querySelector("body");
+    //bodyタグ配下からh1を削除
+    bodyEl.removeChild(h1El);
+
+    //全要素削除する時はtextContentをnullにする
+    //bodyEl.textContent = null;
+}
